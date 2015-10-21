@@ -1,0 +1,79 @@
+" All system-wide defaults are set in $VIMRUNTIME/parabola.vim (usually just
+" /usr/share/vim/vimfiles/parabola.vim) and sourced by the call to :runtime
+" you can find below.  If you wish to change any of those settings, you should
+" do it in this file (/etc/vimrc), since parabola.vim will be overwritten
+" everytime an upgrade of the vim packages is performed.  It is recommended to
+" make changes after sourcing parabola.vim since it alters the value of the
+" 'compatible' option.
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages.
+runtime! parabola.vim
+
+" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
+" Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
+" and configure vim to your own liking!
+
+"--------- Ryan's Customizations-------
+
+syntax on
+syntax enable
+set number
+set relativenumber ": Disabled for rita's og laptop
+set smartindent
+set autoindent
+set shiftwidth=4
+set tabstop=8
+
+"-------  Keybindings ----- 
+" set a map leader
+let mapleader = ','
+let g:mapleader = ','
+
+" On honeysuckle:
+" <esc> key mapped to <CapsLock> in X using this command: xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+" on rita's og laptop
+
+" remap esc to comma-space
+inoremap <leader><space> <esc> 
+
+" inserts 2 blank lines below cursor, stay in normal mode
+map oo 2o<ESC>2k
+
+" insert 2 blank lines above cursor, say normal mode
+map OO 2O<ESC>2j
+
+"  copy/paste
+set clipboard=unnamed 
+
+" shortcut to save
+nmap <leader>, :w<cr>
+
+
+"------------ borrowed configs ------------
+
+
+
+set so=7 " set 7 lines to the cursors - when moving vertical
+set wildmenu " enhanced command line completion
+set hidden " current buffer can be put into background
+set showcmd " show incomplete commands
+"set noshowmode " don't show which mode disabled for PowerLine
+set wildmode=list:longest " complete files like a shell
+set scrolloff=3 " lines of text around cursor
+set shell=$SHELL
+set cmdheight=1 " command bar height
+
+" error bells
+set noerrorbells
+set visualbell
+set t_vb=
+set tm=500
+
+set wrap " turn on line wrapping
+set wrapmargin=8 "wrap lines when coming within n characters from side
+set linebreak " set soft wrapping
+set showbreak=... "show ellipsis at breaking
+
+"------- files --------
+
