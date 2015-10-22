@@ -32,10 +32,10 @@ let g:mapleader = ','
 
 " On honeysuckle:
 " <esc> key mapped to <CapsLock> in X using this command: xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-" on rita's og laptop
+" on  og laptop
 
-" remap esc to comma-space
-inoremap <leader><space> <esc> 
+" remap esc to comma-comma
+inoremap <leader>, <esc> 
 
 " inserts 2 blank lines below cursor, stay in normal mode
 map oo 2o<ESC>2k
@@ -47,7 +47,7 @@ map OO 2O<ESC>2j
 set clipboard=unnamed 
 
 " shortcut to save
-nmap <leader>, :w<cr>
+nmap <leader><space> :w<cr>
 
 
 "------------ borrowed configs ------------
@@ -58,7 +58,6 @@ set so=7 " set 7 lines to the cursors - when moving vertical
 set wildmenu " enhanced command line completion
 set hidden " current buffer can be put into background
 set showcmd " show incomplete commands
-"set noshowmode " don't show which mode disabled for PowerLine
 set wildmode=list:longest " complete files like a shell
 set scrolloff=3 " lines of text around cursor
 set shell=$SHELL
