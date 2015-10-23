@@ -14,6 +14,10 @@ runtime! parabola.vim
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
 
+" leader key - comma
+let mapleader = ','
+let g:mapleader = ','
+
 "--------- rad Customizations-------
 
 syntax on
@@ -22,13 +26,12 @@ set number
 set relativenumber ": Disabled for rita's og laptop
 set smartindent
 set autoindent
-set shiftwidth=4
-set tabstop=8
+set shiftwidth=2
+set tabstop=2
+
+set cursorline
 
 "-------  Keybindings ----- 
-" set a map leader
-let mapleader = ','
-let g:mapleader = ','
 
 " On honeysuckle:
 " <esc> key mapped to <CapsLock> in X using this command: xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
@@ -78,4 +81,5 @@ set linebreak " set soft wrapping
 set showbreak=... "show ellipsis at breaking
 
 "------- files --------
-
+" switch between recent files
+nnoremap <leader>e <c-^>
