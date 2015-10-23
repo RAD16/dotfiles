@@ -34,8 +34,11 @@ let g:mapleader = ','
 " <esc> key mapped to <CapsLock> in X using this command: xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 " on  og laptop
 
+" remap esc to comma-tab
+inoremap <leader><tab> <esc>
+
 " remap esc to comma-comma
-inoremap <leader>, <esc> 
+" inoremap <leader>, <esc> 
 
 " inserts 2 blank lines below cursor, stay in normal mode
 map oo 2o<ESC>2k
