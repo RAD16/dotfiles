@@ -82,6 +82,10 @@ nmap <leader>t :NERDTreeToggle<cr>
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 
+" fugitive keybinds
+nmap <silent> <leader>gs :Gstatus<cr>
+nmap <leader>gc :Gcommit<cr>
+
 " airline theme
 let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
