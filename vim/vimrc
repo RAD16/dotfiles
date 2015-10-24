@@ -14,6 +14,8 @@ runtime! parabola.vim
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
 
+set nocompatible " use vim settings not vi 
+
 " leader key - comma
 let mapleader = ','
 let g:mapleader = ','
@@ -22,14 +24,35 @@ let g:mapleader = ','
 
 syntax on
 syntax enable
-set number
-set relativenumber ": Disabled for rita's og laptop
 set smartindent
+
+" indenting
 set autoindent
 set shiftwidth=2
 set tabstop=2
+set shiftround " set indent as multiple of shiftwidth
+" make indenting easier
+nmap <leader>] >>
+nmap <leader>[ <<
 
 set cursorline
+set ruler " show cursor position always
+
+set number
+set relativenumber ": Disabled for rita's og laptop
+function! TogNum()
+  set nu!
+	set rnu
+endfunction
+function! TogRnu()
+  set rnu!
+	set nu
+endfunction
+autocmd FocusLost * call TogRnu()
+autocmd FocusGained * call TogRnu()
+autocmd InsertEnter * call TogRnu()
+autocmd InsertLeave * call TogRnu()
+
 
 "-------  Keybindings ----- 
 
@@ -55,17 +78,18 @@ set clipboard=unnamed
 " shortcut to save
 nmap <leader><space> :w<cr>
 
-
+" case insensitive searching
+set ignorecase
+set smartcase
 "------------ borrowed configs ------------
-
-
 
 set so=7 " set 7 lines to the cursors - when moving vertical
 set wildmenu " enhanced command line completion
 set hidden " current buffer can be put into background
 set showcmd " show incomplete commands
+set laststatus=2 " display status line always
 set wildmode=list:longest " complete files like a shell
-set scrolloff=3 " lines of text around cursor
+set scrolloff=5 " lines of text around cursor
 set shell=$SHELL
 set cmdheight=1 " command bar height
 
