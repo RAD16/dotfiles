@@ -19,7 +19,6 @@ set nocompatible " use vim settings not vi
 
 " leader kery - comma
 let mapleader = ','
-let g:mapleader = ','
 
 "--------- rad Customizations-------
 
