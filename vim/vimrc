@@ -79,6 +79,11 @@ set clipboard=unnamed
 " shortcut to save
 nmap <leader><space> :w<cr>
 
+" merd tree
+nmap <leader>t :NERDTreeToggle<cr>
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
+
 " case insensitive searching
 set ignorecase
 set smartcase
