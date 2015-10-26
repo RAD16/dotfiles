@@ -78,7 +78,8 @@ let NERDTreeShowHidden=1
 
 " ------ fugitive -----
 nmap <silent> <leader>1 :Gstatus<cr>
-nmap <leader>2 :Gcommit<cr>
+nmap <leader>2 :Glog<cr>
+nmap <leader>3 :Gcommit<cr>
 
 " ------ airline ------
 let g:airline_powerline_fonts=1
