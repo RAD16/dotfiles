@@ -57,7 +57,9 @@ autocmd InsertLeave * call TogRnu()
 " On honeysuckle:
 " <esc> key mapped to <CapsLock> in X using this command: xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 " on  og laptop
-
+" edit vimrc in new window, horizontal split
+nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
+nmap <leader>vh :sp! ~/.dotfiles/vim/vimrc<cr>
 " remap esc to comma-tab
 inoremap <leader><tab> <esc>
 		
@@ -77,8 +79,7 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 
 " ------ fugitive -----
-nmap <silent>
-<leader>1 :Gstatus<cr>
+nmap <silent> <leader>1 :Gstatus<cr>
 nmap <leader>2 :Glog<cr>
 nmap <leader>5 :Gcommit<cr>
 
