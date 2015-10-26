@@ -60,8 +60,8 @@ autocmd InsertLeave * call TogRnu()
 
 " remap esc to comma-tab
 inoremap <leader><tab> <esc>
-
-" inserts 2 blank lines below or above cursor, stay in normal mode
+		
+		" inserts 2 blank lines below or above cursor, stay in normal mode
 map oo 2o<ESC>2k
 map OO 2O<ESC>2j
 
@@ -77,9 +77,10 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 
 " ------ fugitive -----
-nmap <silent> <leader>1 :Gstatus<cr>
+nmap <silent>
+<leader>1 :Gstatus<cr>
 nmap <leader>2 :Glog<cr>
-nmap <leader>3 :Gcommit<cr>
+nmap <leader>5 :Gcommit<cr>
 
 " ------ airline ------
 let g:airline_powerline_fonts=1
