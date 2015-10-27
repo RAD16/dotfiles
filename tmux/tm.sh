@@ -1,5 +1,8 @@
 #! /bin/bash
 #======= TMUX bootstrap =========
+# script launches tmux session menu
+# used with an argument, it opens an configured IDE session
+
 #----- function: create a new IDE session ----- 
 newide() 
 {
@@ -21,7 +24,6 @@ tmux attach -t $1
 #------- function: Menu for new session options ------
 tmenu () 
 {
-echo "menu jesus"
 #export PATH=$PATH:/usr/local/bin
 #startup a "default" session if non currently exists
 #tmux has-session -t _default || tmux new-session -s _default -d
@@ -70,4 +72,3 @@ main ()
 
 # MAIN CALL 
 main $1
-echo "my jesus!!!"
