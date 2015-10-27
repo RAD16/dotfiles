@@ -3,13 +3,11 @@
 runtime! parabola.vim " *** See message at bottom
 set nocompatible " use vim settings not vi 
 
-<<<<<<< HEAD
 " ===== plugin file source =====
 source ~/.vim/plugins.vim
-=======
-" leader kery - comma
+
+" leader key - comma
 let mapleader = ','
->>>>>>> parent of e5e9125... vimrc updates
 
 "======== Keybindings ======
 let mapleader = ',' " leader: comma

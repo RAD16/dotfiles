@@ -55,15 +55,12 @@ echo "menu jesus"
 # MAIN describe 
 main () 
 {
-echo "my top jesus!!!"
 # abort if we're already inside a TMUX session
-	if	[ "$TMUX" == "" ]; then
-		 echo "Already in a tmux session" 
-	else 
+	[ "$TMUX" == "" ] || {
+		echo "Already in tmux session -- exiting" 
 		exit 0
-	fi
+	}
 
-echo "main my top jesus!!!"
 	if [ $# -gt 0 ]; then 
 		newide $1 # New IDE session
 	else
