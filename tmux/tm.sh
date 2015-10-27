@@ -1,12 +1,13 @@
 #! /bin/bash
+#======= TMUX bootstrap =========
 
+#----- function: create a new IDE session ----- 
 newide() 
 {
-
 tmux new-session -s $1 -d 
 
-tmux new-window -t $1:1 -n 'code'
-tmux new-window -t $1:2 -n 'bash'
+tmux new-window -t $1:1 -n 'code' -c ~/buildd/
+tmux new-window -t $1:2 -n 'bash' -c ~/buildd/
 
 # Create and size panes
 tmux select-window -t $1:1
@@ -18,16 +19,15 @@ tmux select-pane -t 0
 tmux attach -t $1
 } 
 
-
+#------- function: Menu for new session options ------
 tmenu () 
 {
 
 # export PATH=$PATH:/usr/local/bin
-
 # startup a "default" session if non currently exists
 # tmux has-session -t _default || tmux new-session -s _default -d
 
-# present menu for user to choose which workspace to open
+# menu 
 PS3="Please choose your session: "
 options=($(tmux list-sessions -F "#S") "New IDE Session" "Blank Session")
 echo "Available sessions"
@@ -39,7 +39,6 @@ do
 		"New IDE Session")
 			read -p "Enter new IDE name: " session_name
 		  newide "$session_name"	
-			#tmux new -s "$SESSION_NAME"
 			break
 			;;
 		"Blank Session")
@@ -58,15 +57,13 @@ done
 main () 
 {
 # abort if we're already inside a TMUX session
-# [ "$TMUX" == "" ] || exit 0
+[ "$TMUX" == "" ] || echo "Already in a tmux session" && exit 0
 
 if [ $# -gt 0 ]; then 
-	newide $1
+	newide $1 # New IDE session
 else
-	tmenu 
+	tmenu  # Menu for creating new session 
 fi
 }
-main $1
-# newide $1
-#tmenu 
 
+main $1
