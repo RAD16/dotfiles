@@ -3,8 +3,13 @@
 runtime! parabola.vim " *** See message at bottom
 set nocompatible " use vim settings not vi 
 
+<<<<<<< HEAD
 " ===== plugin file source =====
 source ~/.vim/plugins.vim
+=======
+" leader kery - comma
+let mapleader = ','
+>>>>>>> parent of e5e9125... vimrc updates
 
 "======== Keybindings ======
 let mapleader = ',' " leader: comma
@@ -32,7 +37,7 @@ map OO O<ESC>2j
 " ======= system ======
 set clipboard=unnamed "  copy/paste
 
-"------ indenting -----
+" indenting
 set autoindent
 set shiftwidth=2
 set tabstop=2
@@ -63,7 +68,7 @@ set smartindent
 set ruler " show cursor position always
 
 set number
-set relativenumber 
+set relativenumber ": Disabled for rita's og laptop
 function! TogNum()
   set nu!
 	set rnu
