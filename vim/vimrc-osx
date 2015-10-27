@@ -1,0 +1,101 @@
+"========= OS X version Vimrc =======
+
+" ===== plugin file source =====
+" source ~/.vim/plugins.vim
+set nocompatible " use vim settings not vi 
+
+"======== Keybindings ======
+let mapleader = ',' " leader key: comma 
+
+"------ save ----- 
+nmap <leader><space> :w<cr>
+
+"------ esc: comma-tab ----- 
+inoremap <leader><tab> <esc>
+
+"------- files --------
+" switch between recent files
+nnoremap <leader>e <c-^>
+
+" inserts a blank lines below or above cursor, stay in normal mode
+map oo o<ESC>2k
+map OO O<ESC>2j
+
+syntax on
+syntax enable
+set smartindent
+
+set ruler " show cursor position always
+set autoindent
+set shiftwidth=2
+set tabstop=2
+set shiftround " set indent as multiple of shiftwidth
+" make indenting easier
+
+nmap <leader>] >>
+nmap <leader>[ <<
+
+set number
+set relativenumber 
+" function! TogNum()
+  " set nu!
+	" set rnu
+" endfunction
+" function! TogRnu()
+  " set rnu!
+	" set nu
+" endfunction
+" autocmd FocusLost * call TogRnu()
+" autocmd FocusGained * call TogRnu()
+" autocmd InsertEnter * call TogRnu()
+" autocmd InsertLeave * call TogRnu()
+
+"  copy/paste
+set clipboard=unnamed 
+
+
+" ------ searching -----
+set ignorecase
+set smartcase
+
+"------- borrowed configs ------
+set so=7 " set 7 lines to the cursors - when moving vertical
+set wildmenu " enhanced command line completion
+set hidden " current buffer can be put into background
+set showcmd " show incomplete commands
+" set noshowmode " hides mode, use only when tmux will display mode
+instead, show incomplete commands
+set laststatus=2 " display status line always
+set wildmode=list:longest " complete files like a shell
+" set scrolloff=5 " lines of text around cursor
+" set shell=$SHELL
+" set cmdheight=1 " command bar height
+
+" error bells
+set noerrorbells
+set visualbell
+set t_vb=
+set tm=500
+
+"----- word wrapping -----
+set wrap " turn on line wrapping
+set wrapmargin=8 "wrap lines when coming within n characters from side
+set linebreak " set soft wrapping
+set showbreak=... "show ellipsis at breaking
+
+
+"----- nerd tree ----
+" nmap <leader>t :NERDTreeToggle<cr>
+" let NERDTreeQuitOnOpen=1
+" let NERDTreeShowHidden=1
+
+" ------ fugitive -----
+" nmap <silent> <leader>1 :Gstatus<cr>
+" nmap <leader>2 :Glog<cr>
+" nmap <leader>5 :Gcommit<cr>
+
+" ------ airline ------
+" let g:airline_powerline_fonts=1
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
+" let g:airline_theme='solarized'
