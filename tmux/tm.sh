@@ -28,9 +28,9 @@ tmenu ()
 # menu 
 	PS3="Pick a session: "
 	options=($(tmux list-sessions -F "#S") "NEW (IDE)" "OPEN")
-	echo "Sessions"
-	echo "------------------"
 	echo " "
+	echo "TMUX Sessions"
+	echo "------------------"
 	select opt in "${options[@]}"
 	do
 		case $opt in
@@ -54,7 +54,7 @@ tmenu ()
 # MAIN describe 
 main () 
 {
-# abort if we're already inside a TMUX session
+# abort if already inside a TMUX session
 	[ "$TMUX" == "" ] || {
 		echo "Already in tmux session -- exiting" 
 		exit 0
