@@ -74,5 +74,3 @@ main ()
 
 # MAIN CALL 
  main $1
-
-
