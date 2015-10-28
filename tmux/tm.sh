@@ -6,19 +6,19 @@
 #----- function: create a new IDE session ----- 
 newide() 
 {
-tmux new-session -s $1 -d 
+	tmux new-session -s $1 -d 
 
-tmux new-window -t $1:0 -n 'code' -c ~/buildd/
-tmux new-window -t $1:1 -n 'bash' -c ~/buildd/
+	tmux new-window -t $1:0 -n 'code' -c ~/buildd/
+	tmux new-window -t $1:1 -n 'bash' -c ~/buildd/
 
 # Create and size panes
-tmux select-window -t $1:0
-tmux split-window -v -p 20 -t $1
-tmux select-pane -t 0
-tmux split-window -h -p 30 -t $1
-tmux select-pane -t 0
+	tmux select-window -t $1:0
+	tmux split-window -v -p 20 -t $1
+	tmux select-pane -t 0
+	tmux split-window -h -p 30 -t $1
+	tmux select-pane -t 0
 
-tmux attach -t $1
+	tmux attach -t $1
 } 
 
 #------- function: Menu for new session options ------
@@ -63,8 +63,8 @@ main ()
 		exit 0
 	}
 
-	if [ $# -gt 0 ]; then 
-		newide $1 # New IDE session
+	if [ $# -eq 1 ]; then 
+    `tmux a -t "$1"` || newide $1 # New IDE session
 	else
 		tmenu  # Menu for creating new session 
 	fi
