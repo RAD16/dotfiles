@@ -1,4 +1,5 @@
 #! /bin/bash
+
 #======= TMUX bootstrap =========
 # script launches tmux session menu
 # when used with argument, it opens configured IDE session
@@ -7,42 +8,37 @@
 newide() 
 {
 	tmux new-session -s $1 -d 
-
-	tmux new-window -t $1:0 -n 'code' -c ~/buildd/
-	tmux new-window -t $1:1 -n 'bash' -c ~/buildd/
-
-# Create and size panes
-	tmux select-window -t $1:0
+	tmux new-window -t $1:1 -n 'code' -c ~/buildd/
+	tmux new-window -t $1:2 -n 'bash' -c ~/buildd/
+	tmux select-window -t $1:1 # Create and size panes
 	tmux split-window -v -p 20 -t $1
 	tmux select-pane -t 0
 	tmux split-window -h -p 30 -t $1
 	tmux select-pane -t 0
-
 	tmux attach -t $1
 } 
 
 #------- function: Menu for new session options ------
 tmenu () 
 {
-#export PATH=$PATH:/usr/local/bin
 #startup a "default" session if non currently exists
 #tmux has-session -t _default || tmux new-session -s _default -d
 
 # menu 
-	PS3="Please choose your session: "
-	options=($(tmux list-sessions -F "#S") "New IDE Session" "Blank Session")
-	echo "Available sessions"
+	PS3="Pick a session: "
+	options=($(tmux list-sessions -F "#S") "NEW (IDE)" "OPEN")
+	echo "Sessions"
 	echo "------------------"
 	echo " "
 	select opt in "${options[@]}"
 	do
 		case $opt in
-			"New IDE Session")
+			"NEW (IDE)")
 				read -p "Enter new IDE name: " session_name
 				newide "$session_name"	
 				break
 				;;
-			"Blank Session")
+			"OPEN")
 				read -p "Enter new session name: " session_name
 				tmux new -s "$session_name"
 				break;;
@@ -64,11 +60,15 @@ main ()
 	}
 
 	if [ $# -eq 1 ]; then 
-    `tmux a -t "$1"` || newide $1 # New IDE session
+   `tmux a -t "$1"`; echo "" || {
+			newide $1 # New IDE session
+		}
 	else
 		tmenu  # Menu for creating new session 
 	fi
 }
 
 # MAIN CALL 
-main $1
+ main $1
+
+
