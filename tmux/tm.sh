@@ -64,7 +64,7 @@ main ()
 	}
 
 	if [ $# -eq 1 ]; then 
-    `tmux a -t "$1"` || newide $1 # New IDE session
+    `tmux a -t "$1"` || nedwide $1 # New IDE session
 	else
 		tmenu  # Menu for creating new session 
 	fi
