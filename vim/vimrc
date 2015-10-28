@@ -66,7 +66,7 @@ set smartindent
 set ruler " show cursor position always
 
 set number
-set relativenumber ": Disabled for rita's og laptop
+set relativenumber 
 function! TogNum()
   set nu!
 	set rnu
