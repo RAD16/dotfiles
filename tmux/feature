@@ -1,0 +1,38 @@
+#! /bin/bash
+
+# checks to see if tmux session with certain name already exists,
+# if so, attach to it, rather than duplicate sessions. 
+# e.g. if session 'bash' already exists, 
+# running ` tm bash ` will attach to bash session, not duplicate it.
+
+echo "hello vim"
+
+	options=($(tmux list-sessions -F "#S") "New IDE Session" "Blank Session")
+echo "${options[@]}"
+
+menu () 
+{
+	PS3="Please choose your session: "
+	options=($(tmux list-sessions -F "#S") "New IDE Session" "Blank Session")
+	echo "Available sessions"
+	echo "------------------"
+	echo " "
+	select opt in "${options[@]}"
+	do
+		case $opt in
+			"New IDE Session")
+				read -p "Enter new IDE name: " session_name
+				newide "$session_name"	
+				break
+				;;
+			"Blank Session")
+				read -p "Enter new session name: " session_name
+				tmux new -s "$session_name"
+				break;;
+			*)
+				tmux attach-session -t $opt
+				break
+				;;
+		esac
+	done
+}
