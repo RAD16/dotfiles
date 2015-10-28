@@ -1,7 +1,7 @@
 #! /bin/bash
 #======= TMUX bootstrap =========
 # script launches tmux session menu
-# used with an argument, it opens an configured IDE session
+# when used with argument, it opens configured IDE session
 
 #----- function: create a new IDE session ----- 
 newide() 
