@@ -28,10 +28,6 @@ nnoremap <leader>e <c-^> " switch between recent files
 map oo o<ESC>2k
 map OO O<ESC>2j
 
-" make indenting easier
-" nmap <leader>] >>
-" nmap <leader>[ <<
-
 " ======= system ======
 set clipboard=unnamed "  copy/paste
 
