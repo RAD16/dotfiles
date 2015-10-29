@@ -28,6 +28,16 @@ nnoremap <leader>e <c-^> " switch between recent files
 map oo o<ESC>2k
 map OO O<ESC>2j
 
+"----- window navigation: make it like tmux ---- 
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
+nmap <c-h> <c-w>h
+" splits 
+nmap <leader>v <C-w>v<C-w>l
+nmap <leader>s <C-w>s<C-w>j
+
+
 " ======= system ======
 set clipboard=unnamed "  copy/paste
 
