@@ -8,17 +8,23 @@
 newide() 
 {
 			tmux new-session -s $1 -d 
+<<<<<<< HEAD
 			tmux new-window -t $1:1 -n 'code' -c ~/buildd/
 			tmux new-window -t $1:2 -n 'bash' -c ~/buildd/
 			tmux new-window -t $1:3 -n 'NOTES' -c ~/buildd/
 			tmux select-window -t $1:1 # Create and size panes
+=======
+			tmux new-window -t $1:1 -n 'bash' -c ~/buildd/
+			tmux new-window -t $1:2 -n 'IDE' -c ~/buildd/
+			tmux select-window -t $1:2 # Create and size panes
+>>>>>>> f46bf48047caa1ca5931b872e1f58216dd0e8710
 			tmux split-window -v -p 20 -t $1
 			tmux select-pane -t 0
 			tmux split-window -h -p 30 -t $1
-			tmux select-pane -t 0
-			tmux attach -t $1
-			tmux a -t "$1"
-} 
+			tmux select-pane -t 0 # Neccessary line? 
+			tmux select-window -t $1:1
+			tmux attach -t "$1" 
+	} 
 
 #------- function: Menu for new session options ------
 tmenu () 
