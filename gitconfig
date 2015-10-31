@@ -37,3 +37,5 @@
     # excludesfile = ~/.gitignore_global
     pager = less -FXRS -x2
     editor = vim
+[push]
+	default = simple

@@ -37,6 +37,12 @@ nmap <c-h> <c-w>h
 nmap <leader>v <C-w>v<C-w>l
 nmap <leader>s <C-w>s<C-w>j
 
+"---- invisible characters toggle ----
+set invlist
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
+set showbreak=↪
+nmap <leader>p :set list!<cr>
 
 " ======= system ======
 set clipboard=unnamed "  copy/paste

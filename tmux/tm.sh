@@ -9,8 +9,8 @@ newide()
 {
 			tmux new-session -s $1 -d 
 			tmux new-window -t $1:1 -n 'IDE' -c ~/buildd/
-			tmux new-window -t $1:2 -n 'NOTES' -c ~/buildd/
-			tmux select-window -t $1:1 # Create and size panes
+			tmux new-window -t $1:2 -n 'NOTES' -c 
+			tmux select-window -t $1:1 
 			tmux split-window -v -p 20 -t $1
 			tmux select-pane -t 0
 			tmux split-window -h -p 30 -t $1
