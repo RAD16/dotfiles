@@ -3,14 +3,12 @@
 runtime! parabola.vim " *** See message at bottom
 set nocompatible " use vim settings not vi 
 
-" ===== plugin file source =====
+" ----- plugin file -----
 source ~/.vim/plugins.vim
 
+"======== Keybindings ======
 " leader key - comma
 let mapleader = ','
-
-"======== Keybindings ======
-let mapleader = ',' " leader: comma
 
 " On honeysuckle:
 " <esc> key mapped to <CapsLock> in X using this command: xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
@@ -18,17 +16,17 @@ let mapleader = ',' " leader: comma
 inoremap <leader><tab> <esc> " Escape
 nmap <leader><space> :w<cr> " Save
 
-" edit vimrc in new window, horizontal split
+" Edit vimrc in new window, horizontal split
 nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
 nmap <leader>vh :sp! ~/.dotfiles/vim/vimrc<cr>
 
 nnoremap <leader>e <c-^> " switch between recent files
 
-" insert blank lines below or above cursor, normal mode
+" Insert blank lines below or above cursor, normal mode
 map oo o<ESC>2k
 map OO O<ESC>2j
 
-"----- window navigation: make it like tmux ---- 
+"----- window navigation ---- 
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
@@ -56,7 +54,6 @@ set shiftround " set indent as multiple of shiftwidth
 " ------ searching -----
 set ignorecase
 set smartcase
-
 
 "====== display settings ======
 syntax on
@@ -102,9 +99,7 @@ set wrapmargin=8 "wrap lines when coming within n characters from side
 set linebreak " set soft wrapping
 set showbreak=... "show ellipsis at breaking
 
-
 "====== Plugins ======
-
 "----- nerd tree ----
 nmap <leader>t :NERDTreeToggle<cr>
 let NERDTreeQuitOnOpen=1
