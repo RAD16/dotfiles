@@ -42,6 +42,23 @@ highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
 set showbreak=↪
 nmap <leader>p :set list!<cr>
 
+"---- folding (thanks to Judd Vinet) ----
+" Folding
+"au BufNewFile,BufRead *              set foldmethod=manual
+"au BufNewFile,BufRead *.c,*.h,*.php  set foldmethod=indent
+"au BufNewFile,BufRead *.c,*.h,*.php  syn region myFold start="{" end="}" transparent fold
+"au BufNewFile,BufRead *              set foldlevel=99
+
+set foldmethod=indent
+set foldlevel=99 " Don't fold anything by default - I'll close the folds myself
+set foldminlines=5 " Don't bother folding small blocks
+
+" Autoclose folds when moving out of them
+"set foldclose=all
+
+" Fold column
+set foldcolumn=0
+
 " ======= system ======
 set clipboard=unnamed "  copy/paste
 
