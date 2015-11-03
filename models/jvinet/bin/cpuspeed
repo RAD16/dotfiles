@@ -1,0 +1,35 @@
+#!/bin/bash
+# 
+# Set the active power management governor for the CPU.
+#
+# Note: The 'ondemand' and 'conservative' governors are only
+#       valid for acpi-cpufreq, not for intel-pstate.
+
+if [ -z "$1" ]; then
+	echo "usage: $0 <mode>"
+	echo "Mode can be: conservative, ondemand, powersave, performance, slow, fast"
+	echo
+	echo "Note: 'slow' is an alias for 'powersave'"
+	echo "      'fast' is an alias for 'performance'"
+	exit 1
+fi
+
+case "$1" in
+	conservative|ondemand)
+		sudo cpupower frequency-set -g $1
+		notify-send "CPU governor set to $1"
+		;;
+	performance|fast)
+		sudo cpupower frequency-set -g performance
+		notify-send "CPU governor set to performance"
+		;;
+	powersave|slow)
+		sudo cpupower frequency-set -g powersave
+		notify-send "CPU governor set to powersave"
+		;;
+	*)
+		echo "Invalid governor: $1"
+		exit 1
+esac
+
+exit 0

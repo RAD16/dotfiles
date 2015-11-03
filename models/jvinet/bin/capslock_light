@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# Turn the Caps Lock light on/off. You can also make it blink
+# with blink/stop.
+#
+
+if [ "`whoami`" != "root" ]; then
+	# re-run through sudo
+	exec sudo $0 $1
+fi
+
+if [ -z "$1" ]; then
+	echo "usage: $0 <on|off|blink|stop>"
+	exit 1
+fi
+
+if [ "$1" = "on" ]; then
+	setleds -D +caps </dev/tty7
+fi
+
+if [ "$1" = "off" ]; then
+	setleds -D -caps </dev/tty7
+fi
+
+if [ "$1" = "blink" ]; then
+	(
+		$0 on
+		sleep 1
+		$0 off
+		sleep 1
+		$0 blink
+	) &
+fi
+
+if [ "$1" = "stop" ]; then
+	pkill -f "/usr/bin/capslock_light blink"
+	$0 off
+fi
+
+exit 0

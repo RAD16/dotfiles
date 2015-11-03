@@ -18,7 +18,7 @@ nmap <leader><space> :w<cr> " Save
 
 " Edit vimrc in new window, horizontal split
 nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
-nmap <leader>vh :sp! ~/.dotfiles/vim/vimrc<cr>
+nmap <leader>vs :sp! ~/.dotfiles/vim/vimrc<cr>
 
 nnoremap <leader>e <c-^> " switch between recent files
 
