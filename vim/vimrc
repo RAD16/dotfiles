@@ -20,11 +20,9 @@ nmap <leader><space> :w<cr> " Save
 nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
 nmap <leader>vs :sp! ~/.dotfiles/vim/vimrc<cr>
 
-nnoremap <leader>e <c-^> " switch between recent files
-
 " Insert blank lines below or above cursor, normal mode
-map oo o<ESC>2k
-map OO O<ESC>2j
+map oo mmo<ESC>`m
+map OO mmO<ESC>`m
 
 "----- window navigation ---- 
 nmap <c-j> <c-w>j
@@ -35,11 +33,17 @@ nmap <c-h> <c-w>h
 nmap <leader>v <C-w>v<C-w>l
 nmap <leader>s <C-w>s<C-w>j
 
+"---- File management (native vim) ----
+nmap <leader>f :vsp! .<cr> " open file tree in left-vert-split
+nmap <leader>hf :sp! .<cr> " file tree horizontal
+nmap <leader>F :e! .<cr> " file tree in current buffer
+nnoremap <leader>e <c-^> " switch between recent files
+
 "---- invisible characters toggle ----
 set invlist
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
-set showbreak=↪
+" set showbreak=↪
 nmap <leader>p :set list!<cr>
 
 "---- folding (thanks to Judd Vinet) ----
@@ -114,7 +118,7 @@ set tm=500
 set wrap " turn on line wrapping
 set wrapmargin=8 "wrap lines when coming within n characters from side
 set linebreak " set soft wrapping
-set showbreak=... "show ellipsis at breaking
+set showbreak=\~\~\  "show ellipsis at breaking
 
 "====== Plugins ======
 "----- nerd tree ----
