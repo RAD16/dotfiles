@@ -118,7 +118,7 @@ set tm=500
 set wrap " turn on line wrapping
 set wrapmargin=8 "wrap lines when coming within n characters from side
 set linebreak " set soft wrapping
-set showbreak=\~\~\  "show ellipsis at breaking
+set showbreak=\~\~\  "show tildes at breaking
 
 "====== Plugins ======
 "----- nerd tree ----
@@ -133,8 +133,10 @@ nmap <leader>5 :Gcommit<cr>
 
 " ------ airline ------
 let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_left_sep='❯'
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
+let g:airline_right_sep='❮'
 let g:airline_theme='solarized'
 
 "=================================
