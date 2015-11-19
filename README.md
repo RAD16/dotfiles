@@ -5,6 +5,6 @@ RAD dotfiles
  - Vim
  - Tmux
  - git
- - Xauthority (urxvt)
+ - Xresources (urxvt)
 * Model configs 
- - *from others*
+> *from others*
