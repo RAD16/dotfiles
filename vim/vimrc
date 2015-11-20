@@ -120,6 +120,21 @@ set wrapmargin=8 "wrap lines when coming within n characters from side
 set linebreak " set soft wrapping
 set showbreak=\~\~\  "show tildes at breaking
 
+"---- Word Processor mode ----
+func! WordProcessorMode()
+	setlocal formatoptions=1
+	setlocal noexpandtab
+	map j gj
+	map k gk
+	setlocal spell spelllang=en_us
+"	set thesaurus+=~/.vim/thesaurus/mthesaur.txt
+	set complete+=s
+	set formatpgr=par
+	setlocal wrap
+	setlocal linebreak
+endfu
+com! WP call WordProcessorMode()
+
 "====== Plugins ======
 "----- nerd tree ----
 nmap <leader>t :NERDTreeToggle<cr>
