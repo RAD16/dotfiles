@@ -129,11 +129,13 @@ func! WordProcessorMode()
 	setlocal spell spelllang=en_us
 "	set thesaurus+=~/.vim/thesaurus/mthesaur.txt
 	set complete+=s
-	set formatpgr=par
+	set formatprg=par
 	setlocal wrap
 	setlocal linebreak
 endfu
 com! WP call WordProcessorMode()
+
+nmap WP :WP<cr>
 
 "====== Plugins ======
 "----- nerd tree ----
