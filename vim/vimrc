@@ -117,12 +117,16 @@ set tm=500
 
 "---- Text edit mode ----
 function! TextMode ()
+	setlocal formatoptions&vim
 	set wrap " turn on line wrapping
 	set wrapmargin=8 "wrap lines when coming within n characters from side
 	set linebreak " set soft wrapping
 	set showbreak=\~\~\  "show tildes at breaking
 	set cursorline
 	set so=7 " set 7 lines to the cursors - when moving vertical
+	set complete&vim
+	set formatprg&vim
+	setlocal formatoptions&vim
 endfunction
 com! TM call TextMode()
 nmap TM :TM<cr>
