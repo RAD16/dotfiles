@@ -6,6 +6,9 @@ set nocompatible " use vim settings not vi
 " ----- plugin file -----
 source ~/.vim/plugins.vim
 
+" ----- swap file -----
+set directory=~/.vim/.swaps//
+
 "======== Keybindings ======
 " leader key - comma
 let mapleader = ','
@@ -19,6 +22,7 @@ nmap <leader><space> :w<cr> " Save
 " Edit vimrc in new window, horizontal split
 nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
 nmap <leader>vs :sp! ~/.dotfiles/vim/vimrc<cr>
+nmap <leader>l :so ~/.vimrc<cr>
 
 nnoremap gj j
 nnoremap gk k
@@ -58,7 +62,7 @@ nmap <leader>p :set list!<cr>
 "au BufNewFile,BufRead *.c,*.h,*.php  syn region myFold start="{" end="}" transparent fold
 "au BufNewFile,BufRead *              set foldlevel=99
 
-set foldmethod=indent
+set foldmethod=manual
 set foldlevel=99 " Don't fold anything by default - I'll close the folds myself
 set foldminlines=5 " Don't bother folding small blocks
 
@@ -80,6 +84,22 @@ set shiftround " set indent as multiple of shiftwidth
 " ------ searching -----
 set ignorecase
 set smartcase
+
+"----- checklists ----- 
+function! MakeCheckBox()
+	:normal! mmI [_] `m
+endfunction
+nnoremap <leader>q :call MakeCheckBox()<cr>
+
+function! CheckOff()
+	:normal! mmF_rX`m
+endfunction
+nnoremap <leader>x :call CheckOff()<cr>
+
+function! UnCheck()
+	:normal! mmFXr_`m
+endfunction
+nnoremap <leader>z :call UnCheck()<cr>
 
 "====== display settings ======
 syntax on
@@ -142,13 +162,14 @@ func! WordProcessorMode()
 	 "setlocal formatoptions=1
 	 setlocal formatoptions=ant
 	 setlocal textwidth=80
+	 setlocal wrapmargin=0 "wrap lines when coming within n characters from side
 	 setlocal noexpandtab
 	 noremap j gj
 	 noremap k gk
 	 setlocal spell spelllang=en_us
 "	set thesaurus+=~/.vim/thesaurus/mthesaur.txt
-	 set complete+=s
-	 set formatprg=par
+	 setlocal complete+=s
+	 setlocal formatprg=par
 	 setlocal wrap
 	 setlocal linebreak
 	 " --- indenting ---
@@ -196,3 +217,4 @@ let g:airline_theme='solarized'
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
 " This line should not be removed as it ensures that various options are " properly set to work with the Vim-related packages.
+filetype plugin indent on
