@@ -87,7 +87,7 @@ set smartcase
 
 "----- checklists ----- 
 function! MakeCheckBox()
-	:normal! mmI [_] `m
+	:normal! mmI * [_] `m
 endfunction
 nnoremap <leader>q :call MakeCheckBox()<cr>
 
