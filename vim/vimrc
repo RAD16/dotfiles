@@ -140,6 +140,7 @@ nmap TM :TM<cr>
 " How do I set this to toggle??? 
 func! WordProcessorMode()
 	 setlocal formatoptions=1
+	 setlocal textwidth=80
 	 setlocal noexpandtab
 	 map j gj
 	 map k gk
@@ -149,6 +150,8 @@ func! WordProcessorMode()
 	 set formatprg=par
 	 setlocal wrap
 	 setlocal linebreak
+	 setlocal smartindent
+	 setlocal nonumber 
 endfu
 com! WP call WordProcessorMode()
 
