@@ -139,19 +139,27 @@ nmap TM :TM<cr>
 "---- Word Processor mode ----
 " How do I set this to toggle??? 
 func! WordProcessorMode()
-	 setlocal formatoptions=1
+	 "setlocal formatoptions=1
+	 setlocal formatoptions=ant
 	 setlocal textwidth=80
 	 setlocal noexpandtab
-	 map j gj
-	 map k gk
+	 noremap j gj
+	 noremap k gk
 	 setlocal spell spelllang=en_us
 "	set thesaurus+=~/.vim/thesaurus/mthesaur.txt
 	 set complete+=s
 	 set formatprg=par
 	 setlocal wrap
 	 setlocal linebreak
-	 setlocal smartindent
+	 " --- indenting ---
+	 " setlocal smartindent
+			" or 
+	 setlocal noautoindent
+	 setlocal nocindent
+	 setlocal nosmartindent
+	 setlocal indentexpr=
 	 setlocal nonumber 
+	 setlocal nornu
 endfu
 com! WP call WordProcessorMode()
 
