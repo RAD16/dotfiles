@@ -144,53 +144,6 @@ set visualbell
 set t_vb=
 set tm=500
 
-
-"---- Text edit mode ----
-function! TextMode ()
-	setlocal formatoptions&vim
-	set wrap " turn on line wrapping
-	set wrapmargin=8 "wrap lines when coming within n characters from side
-	set linebreak " set soft wrapping
-	set showbreak=\~\~\  "show tildes at breaking
-	set cursorline
-	set so=7 " set 7 lines to the cursors - when moving vertical
-	set complete&vim
-	set formatprg&vim
-	setlocal formatoptions&vim
-endfunction
-com! TM call TextMode()
-nmap TM :TM<cr>
-
-"---- Word Processor mode ----
-" How do I set this to toggle??? 
-func! WordProcessorMode()
-	 "setlocal formatoptions=1
-	 setlocal formatoptions=ant
-	 setlocal textwidth=80
-	 setlocal wrapmargin=0 "wrap lines when coming within n characters from side
-	 setlocal noexpandtab
-	 noremap j gj
-	 noremap k gk
-	 setlocal spell spelllang=en_us
-"	set thesaurus+=~/.vim/thesaurus/mthesaur.txt
-	 setlocal complete+=s
-	 setlocal formatprg=par
-	 setlocal wrap
-	 setlocal linebreak
-	 " --- indenting ---
-	 " setlocal smartindent
-			" or 
-	 setlocal noautoindent
-	 setlocal nocindent
-	 setlocal nosmartindent
-	 setlocal indentexpr=
-	 setlocal nonumber 
-	 setlocal nornu
-endfu
-com! WP call WordProcessorMode()
-
-nmap WP :WP<cr>
-
 "====== Plugins ======
 "----- nerd tree ----
 nmap <leader>t :NERDTreeToggle<cr>
