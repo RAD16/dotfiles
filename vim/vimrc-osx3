@@ -7,6 +7,7 @@ let mapleader = ','
 
 inoremap <leader><tab> <esc> " Escape
 nmap <leader><space> :w<cr> " Save
+imap <D-space> <esc> " Escape
 
 "*** Insert blank lines below or above cursor, normal mode
 map oo mmo<ESC>`m
