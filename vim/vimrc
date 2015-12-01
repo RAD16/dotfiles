@@ -14,7 +14,7 @@ let mapleader = ','
 " <esc> key mapped to <CapsLock> in X using this command: xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 inoremap <leader><tab> <esc> " Escape
-nmap <leader><space> :w<cr> " Save
+inoremap <leader>a <esc> " Escape
 
 " Edit vimrc in new window, horizontal split
 nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
