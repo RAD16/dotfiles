@@ -85,20 +85,26 @@ set shiftround " set indent as multiple of shiftwidth
 set ignorecase
 set smartcase
 
-"----- checklists ----- 
+"----- checklists by me! ----- 
 function! MakeCheckBox()
 	:normal! mmI * [_] `m
 endfunction
-nnoremap <leader>q :call MakeCheckBox()<cr>
 
-function! CheckOff()
-	:normal! mmF_rX`m
+function! RemoveCheckBox()
+	:normal! mm0rf*df] `m
 endfunction
-nnoremap <leader>x :call CheckOff()<cr>
+
+function! Check()
+	:normal! mm0f_rx`m
+endfunction
 
 function! UnCheck()
-	:normal! mmFXr_`m
+	:normal! mm0fxr_`m
 endfunction
+
+nnoremap <leader>q :call MakeCheckBox()<cr>
+nnoremap <leader>Q :call RemoveCheckBox()<cr>
+nnoremap <leader>x :call Check()<cr>
 nnoremap <leader>z :call UnCheck()<cr>
 
 "====== display settings ======
