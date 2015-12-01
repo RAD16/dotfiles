@@ -29,6 +29,9 @@ nnoremap gk k
 nnoremap j gj
 nnoremap k gk
 
+nmap H ^
+nmap L $
+
 " Insert blank lines below or above cursor, normal mode
 map oo mmo<ESC>`m
 map OO mmO<ESC>`m
