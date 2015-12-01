@@ -18,6 +18,7 @@ let mapleader = ','
 
 inoremap <leader><tab> <esc> " Escape
 inoremap <leader>a <esc> " Escape
+nnoremap <leader><space> :w<cr>
 
 " Edit vimrc in new window, horizontal split
 nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
@@ -29,8 +30,8 @@ nnoremap gk k
 nnoremap j gj
 nnoremap k gk
 
-nmap H ^
-nmap L $
+nnoremap H ^
+nnoremap L $
 
 " Insert blank lines below or above cursor, normal mode
 map oo mmo<ESC>`m
