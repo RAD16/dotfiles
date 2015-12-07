@@ -54,7 +54,7 @@ nnoremap <leader>F :e! .<cr> " file tree in current buffer
 nnoremap <leader>e <c-^> " switch between recent files
 
 " Characters toggle
-set invlist
+" set invlist
 "*** See Airline Plugin below
 "set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮ 
 highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
