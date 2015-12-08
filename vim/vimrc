@@ -13,9 +13,9 @@ set directory=~/.vim/.swaps//
 let mapleader = ','
 
 " Escape / Save ---
-inoremap <leader><tab> <esc> " Escape
-inoremap <leader>a <esc> " Escape
-nnoremap <leader><space> :w<cr> " Write to file
+inoremap <leader><tab> <esc>
+inoremap <leader>a <esc>
+nnoremap <leader><space> :w<cr>
 
 " Edit vimrc in new window, horizontal split
 nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
