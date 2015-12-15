@@ -91,40 +91,13 @@ set smartcase
 
 set formatoptions=tcq1
 syntax enable
-"======== EXPERIMENTAL WP modes ========
-function! TextMode()
-	set formatoptions-=a
-	set number
-	set relativenumber 
-	syntax on
-	set autoindent
-	set shiftwidth=2
-	set tabstop=2
-	set shiftround " set indent as multiple of shiftwidth
-	set textwidth=0
-	nmap <leader>q v}gq
-endfunction
-nnoremap <leader>T :call TextMode()<cr>:Goyo!<cr>
-
-function! WordMode()
-	syntax off
-	set formatoptions+=a
-	set nonu
-	set nornu
-	set nolist
-	set autoindent
-	set shiftwidth=2
-	set textwidth=80
-	"mapping to re-adjust paragraph after insertion unnecessary with
-	"formatoptions+=a (?)
-	"nnoremap <leader>q v}gq
-	let g:goyo_width=85
-endfunction
-nnoremap <leader>W :call WordMode()<cr>:Goyo 85<cr>
 
 "======== Display settings ========
 syntax on
 syntax enable
+
+set number
+set relativenumber
 
 set wildmenu " enhanced command line completion
 set hidden " current buffer can be put into background
@@ -160,6 +133,36 @@ set visualbell
 set t_vb=
 set tm=500
 
+"======== EXPERIMENTAL WP modes ========
+function! TextMode()
+	set formatoptions-=a
+	set number
+	set relativenumber 
+	syntax on
+	set autoindent
+	set shiftwidth=2
+	set tabstop=2
+	set shiftround " set indent as multiple of shiftwidth
+	set textwidth=0
+	nmap <leader>q v}gq
+endfunction
+nnoremap <leader>T :Goyo!<cr>:call TextMode()<cr>
+
+function! WordMode()
+	syntax off
+	set formatoptions+=a
+	set nonu
+	set nornu
+	set nolist
+	set autoindent
+	set shiftwidth=2
+	set textwidth=80
+	"mapping to re-adjust paragraph after insertion unnecessary with
+	"formatoptions+=a (?)
+	"nnoremap <leader>q v}gq
+	let g:goyo_width=85
+endfunction
+nnoremap <leader>W :call WordMode()<cr>:Goyo 85<cr>
 "======== Plugins ========
 " Nerd tree
 nmap <leader>t :NERDTreeToggle<cr>
