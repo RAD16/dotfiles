@@ -15,10 +15,15 @@ Plugin 'tpope/vim-fugitive' " git wrapper
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/tComment' " gcc - comment out 
 
+" ---- tables ---- 
+Plugin 'dhruvasagar/vim-table-mode'
 
 " ----- theming -------
 Plugin 'bling/vim-airline' " fancy status bar
 Plugin 'altercation/vim-colors-solarized' " cokor chemw for airline 
+
+" ----- word processing -------
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 filetype on 

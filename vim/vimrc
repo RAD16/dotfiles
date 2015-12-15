@@ -13,9 +13,9 @@ set directory=~/.vim/.swaps//
 let mapleader = ','
 
 " Escape / Save ---
-inoremap <leader><tab> <esc> " Escape
-inoremap <leader>a <esc> " Escape
-nnoremap <leader><space> :w<cr> " Write to file
+inoremap <leader><tab> <esc>
+inoremap <leader>a <esc>
+nnoremap <leader><space> :w<cr>
 
 " Edit vimrc in new window, horizontal split
 nmap <leader>vv :e! ~/.dotfiles/vim/vimrc<cr>
@@ -67,15 +67,14 @@ nmap <leader>p :set list!<cr>
 "au BufNewFile,BufRead *.c,*.h,*.php  syn region myFold start="{" end="}" transparent fold
 "au BufNewFile,BufRead *              set foldlevel=99
 
+set foldenable
 set foldmethod=manual
 set foldlevel=99 " Don't fold anything by default - I'll close the folds myself
 set foldminlines=5 " Don't bother folding small blocks
+set foldcolumn=3
 
 " autoclose folds when moving out of them
 "set foldclose=all
-
-" fold column
-set foldcolumn=0
 
 "======== System ========
 set clipboard=unnamed " copy/paste
@@ -89,6 +88,39 @@ set shiftround " set indent as multiple of shiftwidth
 " Searching
 set ignorecase
 set smartcase
+
+set formatoptions=tcq1
+syntax enable
+"======== EXPERIMENTAL WP modes ========
+function! TextMode()
+	set formatoptions-=a
+	set number
+	set relativenumber 
+	syntax on
+	set autoindent
+	set shiftwidth=2
+	set tabstop=2
+	set shiftround " set indent as multiple of shiftwidth
+	set textwidth=0
+	nmap <leader>q v}gq
+endfunction
+nnoremap <leader>T :call TextMode()<cr>:Goyo!<cr>
+
+function! WordMode()
+	syntax off
+	set formatoptions+=a
+	set nonu
+	set nornu
+	set nolist
+	set autoindent
+	set shiftwidth=2
+	set textwidth=80
+	"mapping to re-adjust paragraph after insertion unnecessary with
+	"formatoptions+=a (?)
+	"nnoremap <leader>q v}gq
+	let g:goyo_width=85
+endfunction
+nnoremap <leader>W :call WordMode()<cr>:Goyo 85<cr>
 
 "======== Display settings ========
 syntax on
@@ -107,20 +139,20 @@ set smartindent
 set ruler " show cursor position always
 
 " Numbering
-set number
-set relativenumber 
-function! TogNum()
-  set nu!
-	set rnu
-endfunction
-function! TogRnu()
-  set rnu!
-	set nu
-endfunction
-autocmd FocusLost * call TogRnu()
-autocmd FocusGained * call TogRnu()
-autocmd InsertEnter * call TogRnu()
-autocmd InsertLeave * call TogRnu()
+"set number
+"set relativenumber 
+"function! TogNum()
+  "set nu!
+	"set rnu
+"endfunction
+"function! TogRnu()
+  "set rnu!
+	"set nu
+"endfunction
+"autocmd FocusLost * call TogRnu()
+"autocmd FocusGained * call TogRnu()
+"autocmd InsertEnter * call TogRnu()
+"autocmd InsertLeave * call TogRnu()
 
 " Error bells
 set noerrorbells
