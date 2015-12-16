@@ -36,33 +36,33 @@ endfunction
 com! TODO call TODO()
 
 function! DONE()
- :normal! 0/TODO^MciwDONE
+ :normal! mm0:s/TODO/DONE/g`m
 endfunction
 com! DONE call DONE()
 
 function! NotDONE()
- :normal! 0/DONE^MciwTODO
+ :normal! mm0:s/DONE/TODO/g`m
 endfunction
 com! NotDONE call NotDONE()
 
 function! RemoveTODO()
-	:normal mm0/TODO ^MF*2df0`m
+	:normal mm^2dt `m
 endfunction
 com! RemoveTODO call RemoveTODO()
 
 function! ClearTODO()
-	:normal gg
-	:%normal d2wj
+	:normal mm:%s/TODO/DONE/g 
+	:normal :%s/\* DONE/ /g`m
 endfunction
 com! ClearTODO call ClearTODO()
 
 " Keymappings
 " calling function instead of command 
 " allows a range to be given
-nnoremap <leader>td :call TODO()<cr>
+nnoremap <leader>tt :call TODO()<cr>
 nnoremap <leader>rt :call RemoveTODO()<cr>
 nnoremap <leader>dt :call DONE()<cr>
-nnoremap <leader>ut :call NotDONE()<cr>
+nnoremap <leader>nt :call NotDONE()<cr>
 "nnoremap <leader>ct :ClearTODO<cr>
 
 "-------- Markdown headers --------
