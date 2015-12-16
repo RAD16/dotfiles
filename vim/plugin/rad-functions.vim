@@ -36,14 +36,19 @@ endfunction
 com! TODO call TODO()
 
 function! DONE()
- :normal! 0fTciwDONE
+ :normal! 0/TODO^MciwDONE
 endfunction
 com! DONE call DONE()
 
 function! NotDONE()
- :normal! 0fDciwTODO
+ :normal! 0/DONE^MciwTODO
 endfunction
 com! NotDONE call NotDONE()
+
+function! RemoveTODO()
+	:normal mm0/TODO ^MF*2df0`m
+endfunction
+com! RemoveTODO call RemoveTODO()
 
 function! ClearTODO()
 	:normal gg
@@ -55,9 +60,10 @@ com! ClearTODO call ClearTODO()
 " calling function instead of command 
 " allows a range to be given
 nnoremap <leader>td :call TODO()<cr>
+nnoremap <leader>rt :call RemoveTODO()<cr>
 nnoremap <leader>dt :call DONE()<cr>
 nnoremap <leader>ut :call NotDONE()<cr>
-nnoremap <leader>ct :ClearTODO<cr>
+"nnoremap <leader>ct :ClearTODO<cr>
 
 "-------- Markdown headers --------
 "
