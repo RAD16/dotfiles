@@ -15,6 +15,8 @@ Plugin 'tpope/vim-fugitive' " git wrapper
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/tComment' " gcc - comment out 
 
+" ----- tmux movement -------
+Plugin 'christoomey/vim-tmux-navigator'
 
 " ----- theming -------
 Plugin 'bling/vim-airline' " fancy status bar
