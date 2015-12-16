@@ -5,11 +5,12 @@
   user = rad16
 
 [alias]
-    co = checkout
+    c = checkout
     s = status --short
     ss  = status
     br = branch -v
     p = push
+		rl = reflog
     l = log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     day = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=\"yesterday 11:59PM\" --author=\"`git config --get user.name`\"'"
 [color]
