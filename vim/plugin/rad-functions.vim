@@ -23,39 +23,41 @@ nnoremap <leader>XX :call RemoveCheckBox()<cr>
 nnoremap <leader>x :call Check()<cr>
 nnoremap <leader>xx :call UnCheck()<cr>
 
-"------- Convert msg to ToDo list, compatible with NoNonsense Notes app
-function! MakeTodo()
+"------- Create org-mode style TODO lists -----
+function! MakeTODO()
 	:normal! gg
 	:%normal! 0i* TODO j
 endfunction
-com! MakeTodo call MakeTodo()
+com! MakeTODO call MakeTODO()
 
-function! Todo()
-	:normal! 0i* TODO j
+function! TODO()
+	:normal! mm0i* TODO `m
 endfunction
-com! Todo call Todo()
+com! TODO call TODO()
 
-function! Done()
+function! DONE()
  :normal! 0fTciwDONE
 endfunction
-com! Done call Done()
+com! DONE call DONE()
 
-function! NotDone()
+function! NotDONE()
  :normal! 0fDciwTODO
 endfunction
-com! NotDone call NotDone()
+com! NotDONE call NotDONE()
 
-function! ClearTodo()
+function! ClearTODO()
 	:normal gg
 	:%normal d2wj
 endfunction
-com! ClearTodo call ClearTodo()
+com! ClearTODO call ClearTODO()
 
 " Keymappings
-nnoremap <leader>td :Todo<cr>
-nnoremap <leader>dt :Done<cr>
-nnoremap <leader>ut :UnDone<cr>
-nnoremap <leader>ct :ClearTodo<cr>
+" calling function instead of command 
+" allows a range to be given
+nnoremap <leader>td :call TODO()<cr>
+nnoremap <leader>dt :call DONE()<cr>
+nnoremap <leader>ut :call NotDONE()<cr>
+nnoremap <leader>ct :ClearTODO<cr>
 
 "-------- Markdown headers --------
 "
