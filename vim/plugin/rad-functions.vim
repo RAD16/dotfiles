@@ -24,9 +24,14 @@ nnoremap <leader>x :call Check()<cr>
 nnoremap <leader>xx :call UnCheck()<cr>
 
 "------- Convert msg to ToDo list, compatible with NoNonsense Notes app
-function! Todo()
+function! MakeTodo()
 	:normal! gg
 	:%normal! 0i* TODO j
+endfunction
+com! MakeTodo call MakeTodo()
+
+function! Todo()
+	:normal! 0i* TODO j
 endfunction
 com! Todo call Todo()
 
@@ -35,10 +40,10 @@ function! Done()
 endfunction
 com! Done call Done()
 
-function! UnDone()
+function! NotDone()
  :normal! 0fDciwTODO
 endfunction
-com! UnDone call UnDone()
+com! NotDone call NotDone()
 
 function! ClearTodo()
 	:normal gg
