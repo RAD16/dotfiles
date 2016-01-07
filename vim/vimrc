@@ -61,12 +61,6 @@ highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
 " set showbreak=↪
 nmap <leader>p :set list!<cr>
 
-" Folding (thanks to Judd Vinet) ----
-"au BufNewFile,BufRead *              set foldmethod=manual
-"au BufNewFile,BufRead *.c,*.h,*.php  set foldmethod=indent
-"au BufNewFile,BufRead *.c,*.h,*.php  syn region myFold start="{" end="}" transparent fold
-"au BufNewFile,BufRead *              set foldlevel=99
-
 set foldenable
 set foldmethod=manual
 set foldlevel=99 " Don't fold anything by default - I'll close the folds myself
@@ -133,6 +127,11 @@ set visualbell
 set t_vb=
 set tm=500
 
+"--------- Alpine editor mode --------
+au BufNewFile,BufRead pico.*          set tw=74
+au BufNewFile,BufRead pico.*          set nonu
+au BufNewFile,BufRead pico.*          syntax off
+
 "======== EXPERIMENTAL WP modes ========
 function! TextMode()
 	set formatoptions-=a
@@ -177,7 +176,7 @@ nmap <leader>5 :Gcommit<cr>
 " Airline
 let g:airline_powerline_fonts=1
 let g:airline_left_sep='❯'
-set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+"set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 highlight SpecialKey ctermbg=none " make the highlighting of tabs less annoying
 let g:airline_right_sep='❮'
 let g:airline_theme='solarized'
