@@ -8,8 +8,8 @@ Xft.hintstyle:  hintslight
 
 ! URxvt settings ---------------------------------------------------------------
 
-URxvt.font: xft:Menlo:size=9
-URxvt.boldFont: xft:Menlo:bold:size=9
+URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
+URxvt.boldFont: 9x15bold
 
 !URxvt.intensityStyles: false
 urxvt.background: #000000
