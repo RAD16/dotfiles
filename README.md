@@ -1,6 +1,7 @@
-RAD dotfiles
+DEPRECATED -- RAD dotfiles
 -------------
-
+* These are from years ago and might be useful to...someone?
+*
 * Config files
  - Vim
  - Tmux
